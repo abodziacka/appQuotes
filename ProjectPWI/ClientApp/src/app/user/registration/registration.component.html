@@ -1,0 +1,55 @@
+<div class="containerTwo">
+            <div class="row">
+                <div class="col-md-12 my-auto side-header">
+                    <img src="/assets/img/addUser.png" class="mx-auto d-block imgUser">
+                    <h1>{{'REGISTER.TITLE' | translate }}</h1>
+    
+                </div>
+            </div>
+    
+            <form [formGroup]='service.formModel' autocomplete="off" (submit)="onSubmit()">
+                <div class="form-group required">
+                    <label>{{'REGISTER.USERNAME' | translate }}</label>
+                    <input class="form-control" formControlName='UserName' pattern="^[A-Za-z0-9_-]{3,10}$"> 
+                    <label class="text-danger" *ngIf="service.formModel.get('UserName').touched && service.formModel.get('UserName').errors?.required">{{'REGISTER.ERROR1' | translate }}</label>
+                    <p class="form__field__error">{{'REGISTER.ERROR1A' | translate }}</p>
+                </div>
+                <div class="form-group">
+                    <label>{{'REGISTER.EMAIL' | translate }}</label>    
+                    <input class="form-control" formControlName='Email'> 
+                    <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">{{'REGISTER.ERROR2' | translate }}</label>
+                </div>
+                <div class="form-group">
+                    <label>{{'REGISTER.FULLNAME' | translate }}</label>
+                    <input class="form-control" formControlName='FullName' pattern="^[A-Za-z]{2,15} [A-Za-z]{2,15}$|^[A-Za-z]{2,15} [A-Za-z]{2,15} [A-Za-z]{2,15}$|^[A-Za-z]{2,15} [A-Za-z]{2,15}-[A-Za-z]{2,15}$|^[A-Za-z]{2,15} [A-Za-z]{2,15} [A-Za-z]{2,15}( |-)[A-Za-z]{2,15}$|^[A-Za-z]{2,15} [A-Za-z]{2,15} [A-Za-z]{2,15}$ "> 
+                    <p class="form__field__error">{{'REGISTER.ERROR3' | translate }}</p>
+                </div>
+                <div formGroupName='Passwords'>
+                    <div class="form-group required">
+                        <label>{{'REGISTER.PASSWORD' | translate }}</label>
+                        <input type="password" class="form-control" formControlName='Password' pattern="^[A-Za-z]\w{3,14}$"> 
+                        <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.required">{{'REGISTER.ERROR4' | translate }}</label>
+                        <p class="form__field__error">{{'REGISTER.ERROR4A' | translate }}</p>
+                    </div>
+                    <div class="form-group required">
+                        <label>{{'REGISTER.CONFIRM' | translate }}</label>
+                        <input type="password" class="form-control" formControlName='ConfirmPassword'> 
+                        <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.required">{{'REGISTER.ERROR5' | translate }}</label>
+                        <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.passwordMismatch">{{'REGISTER.ERROR5A' | translate }}</label>
+    
+    
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group col-md-8 offset-md-2">
+                        <button type="submit" class="btn btn-lg btn-block" [disabled]="!service.formModel.valid">{{'REGISTER.SIGNUP' | translate }}</button>
+                    </div>
+                    <!-- <div class="form-row">
+                        <button class="btn btn-danger my-2 my-sm-0" [routerLink]="['/user/login']"> {{'LOGIN.REMIND' | translate }}</button>
+                    </div> -->
+                </div>
+    
+            </form>
+    
+</div>
