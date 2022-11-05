@@ -1,8 +1,6 @@
 # Opis
 
-Aplikacja webowa stworzona w celu zaliczenia  przedmiotu "Programowanie w Internecie". Projekt znajduje się na stronie: https://appquotesab.azurewebsites.net/
-
-
+Aplikacja webowa stworzona w celu zaliczenia przedmiotu "Programowanie w Internecie". Projekt miał na celu zaznajomienie się z podstawami HTML oraz CSS.
 
 # Technologie
 * C#
